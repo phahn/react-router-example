@@ -22,10 +22,10 @@ const BasicExample = () => (
               <Link to={`/reports/PART`}>PART</Link>
             </li>
             <li>
-              <Link to={`/reports/PART?PART=LAPTOP_1`}>PART with Filter 1</Link>
+              <Link to={`/reports/PART?PART=Cable`}>PART with Filter 1</Link>
             </li>
             <li>
-              <Link to={`/reports/PART?PART=LAPTOP_2`}>PART with Filter 2</Link>
+              <Link to={`/reports/PART?PART=Processor`}>PART with Filter 2</Link>
             </li>
             <li>
               <Link to={`/reports/DEPOT`}>DEPOT</Link>

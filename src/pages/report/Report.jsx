@@ -1,5 +1,7 @@
 import React from "react";
 
+import { getReportData } from './Report.api'
+
 class Report extends React.Component {
 
     constructor(props) {
@@ -40,13 +42,15 @@ class Report extends React.Component {
             loading: true
         });
 
-        const data = ["LAPTOP_1", "LAPTOP_1", "LAPTOP_2", "LAPTOP_3", "LAPTOP_1"];
-        const filteredData = data.filter(entry => entry === value);
+        const filter = {
+            PART: value
+        }
 
-        setTimeout(
-            () => this.setState({ data: filteredData, loading: false }),
-            1000
-        );
+        getReportData(filter).then(response => {
+            const result = response.data.content;
+            this.setState({ data: result, loading: false })
+        });
+
     }
 
     onSelect(event) {
@@ -72,7 +76,7 @@ class Report extends React.Component {
         const { name } = this.props;
         const { value, data, loading } = this.state;
 
-        const options = ["", "LAPTOP_1", "LAPTOP_2", "LAPTOP_3"];
+        const options = ["", "Processor", "Cable", "Hard Disk"];
 
         return (
             <div>
