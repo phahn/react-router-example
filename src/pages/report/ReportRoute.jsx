@@ -3,6 +3,9 @@ import { parse, stringify } from "query-string";
 
 import Report from './Report'
 
+
+import { ThemeContext } from '../../ThemeContext'
+
 class ReportRoute extends React.Component {
     constructor(props) {
         super(props);
@@ -27,12 +30,20 @@ class ReportRoute extends React.Component {
 
         const queryParams = this.parseFilterFromUrl(location);
         const reportName = match.params.reportId;
+
+
         return (
-            <Report
-                name={reportName}
-                queryParams={queryParams}
-                onConfirmFilter={this.onChangeFilter}
-            />
+            <ThemeContext.Consumer>
+                {theme => (
+                    <Report
+                        name={reportName}
+                        queryParams={queryParams}
+                        onConfirmFilter={this.onChangeFilter}
+                        theme={theme}
+                    />
+                )}
+            </ThemeContext.Consumer>
+
         );
     }
 }

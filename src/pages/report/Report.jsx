@@ -2,6 +2,7 @@ import React from "react";
 
 import { getReportData } from './Report.api'
 
+
 class Report extends React.Component {
 
     constructor(props) {
@@ -73,14 +74,14 @@ class Report extends React.Component {
     }
 
     render() {
-        const { name } = this.props;
+        const { name, theme } = this.props;
         const { value, data, loading } = this.state;
 
         const options = ["", "Processor", "Cable", "Hard Disk"];
 
         return (
             <div>
-                <h3>{name}</h3>
+                <h3>{name} {theme()}</h3>
 
                 <select value={value} onChange={this.onSelect}>
                     {options.map(option => (
