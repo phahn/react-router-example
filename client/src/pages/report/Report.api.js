@@ -16,5 +16,5 @@ export function getReportData(filter) {
         partFilter: filter.PART
     }
     const searchString = stringify(search);
-    return axios.get(`/deliveryplan/report?${searchString}`).then(sleeper(1000));
+    return axios.get(`/api?${searchString}`).then(sleeper(1000));
 }
